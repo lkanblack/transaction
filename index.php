@@ -9,17 +9,36 @@
 <body>
 
   <div class="container mt-4">
+
+    <?php 
+      if($_COOKIE['wallet'] == ''):
+    ?> 
+
     <div class="row">
       <div class="col-md-5">
         <h2>Wallet register</h2>
         <form action="check.php" method="post">
             <input type="text" class="form-control mb-2" name="login" id="login" placeholder="Login">
             <input type="text" class="form-control mb-2" name="name" id="name" placeholder="Name">
+            <input type="number" class="form-control mb-2" name="amount" id="amount" placeholder="Amount">
             <input type="password" class="form-control mb-2" name="pass" id="pass" placeholder="Password">
             <button type="submit" class="btn btn-success">Register</button>
         </form>
       </div>
+      <div class="offset-md-2 col-md-5">
+          <h2>Login</h2>
+        <form action="auth.php" method="post">
+            <input type="text" class="form-control mb-2" name="login" id="login" placeholder="Login">
+            <input type="password" class="form-control mb-2" name="pass" id="pass" placeholder="Password">
+            <button type="submit" class="btn btn-success">Login</button>
+        </form>
+        </div>
     </div>
+      <?php else:?>
+        <p>Hello <?=$_COOKIE['wallet']?>.  <a href="exit.php">exit</a></p>
+        <h4>Balance:</h4><span></span>
+      <?php endif;?>
+       
   </div>
   
 
