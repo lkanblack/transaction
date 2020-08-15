@@ -1,9 +1,12 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paxful test</title>
+  <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -38,7 +41,60 @@
         <p>Hello <?=$_COOKIE['wallet']?>.  <a href="exit.php">exit</a></p>
         <h4>Balance:</h4><span></span>
       <?php endif;?>
-       
+       <div class="col-md-5 mt-5">
+       <h2>Registered wallets</h2>
+       <div class="wallets">
+          <div class="block">
+            
+            <b>Wallets:</b>
+            <br>
+              <?php
+                $mysql = new mysqli('localhost', 'root', 'root', 'paxful-bd');
+                $info = mysqli_query($mysql, "SELECT * FROM `wallets`");
+
+                while ($content = mysqli_fetch_assoc($info)){
+                  echo $content['login'];
+                  echo "<br>";
+                }
+
+              ?>
+            </div>
+                
+          <div class="block">
+            
+            <b>Name:</b>
+            <br>
+              <?php
+                $mysql = new mysqli('localhost', 'root', 'root', 'paxful-bd');
+                $info = mysqli_query($mysql, "SELECT * FROM `wallets`");
+
+                while ($content = mysqli_fetch_assoc($info)){
+                  echo $content['name'];
+                  echo "<br>";
+                }
+
+              ?>
+            </div>
+                
+          <div class="block">
+            
+            <b>Amount:</b>
+            <br>
+              <?php
+                $mysql = new mysqli('localhost', 'root', 'root', 'paxful-bd');
+                $info = mysqli_query($mysql, "SELECT * FROM `wallets`");
+
+                while ($content = mysqli_fetch_assoc($info)){
+                  echo $content['amount'];
+                  echo "<br>";
+                }
+
+              ?>
+            </div>
+          
+          </div>
+          </div>
+       </div>
   </div>
   
 

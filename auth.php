@@ -17,8 +17,6 @@
     } else {
  
         setcookie('wallet', $wallet['name'], time() + 3600 * 24 * 7, "/");
-
-        // header('Location: account.php');
     }
 
     $mysql->close();
